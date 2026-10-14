@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>МОРКОВЬ +5 СМ — Врачи-агрономы в шоке!</title>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="top">🔥 Только сегодня! Осталось 3 грядки по акции 🔥</div>
+
+<header class="hero"><div class="wrap">
+<h1>Морковь короче, чем у соседа? <em>Добавь +5&nbsp;см</em> за один сезон!</h1>
+<p>Агрономы ненавидят этот простой трюк. Без химии, без таблеток, без стыда на дачном собрании. Только морковь. Именно морковь.</p>
+</div></header>
+
+<main class="wrap">
+<section class="stage" aria-label="Демонстрация">
+<div class="read"><span>Было: <span class="big" id="was">15 см</span></span><span>Стало: <span class="big" id="now">15 см</span></span></div>
+<div class="scroll">
+<svg id="c" viewBox="0 0 460 90" width="460" height="90" role="img" aria-label="Морковь"></svg>
+</div>
+<div class="soil"></div>
+<p></p>
+<button class="btn" id="go">УДЛИНИТЬ МОРКОВЬ НА 5 СМ</button>
+<p class="msg" id="msg" aria-live="polite">Нажмите кнопку. Мы не несём ответственности за счастье.</p>
+</section>
+
+<div class="timer">Скидка сгорит через<b id="t">09:59</b>Потом цена вырастет. Как морковь.</div>
+
+<h2>Как это работает (на самом деле)</h2>
+<div class="method"><h3>Метод 1. Рыхлая почва</h3><p>Перекопайте грядку на глубину штыка лопаты. Морковь не растёт вглубь там, где ей мешают. Как и все мы.</p></div>
+<div class="method"><h3>Метод 2. Убрать камни</h3><p>Один камешек, и корнеплод ветвится и кривится. Вычистите грядку, и морковка пойдёт вниз прямо, как по линейке.</p></div>
+<div class="method"><h3>Метод 3. Полив глубоко и редко</h3><p>Часто и понемногу значит корни ленятся и остаются у поверхности. Поливайте обильно раз в несколько дней, и тянуться за водой придётся глубже.</p></div>
+<div class="method"><h3>Метод 4. Прореживание</h3><p>Оставьте между растениями 3–5 см. Конкуренция полезна в бизнесе, но не на грядке.</p></div>
+<div class="method"><h3>Метод 5. Подождать</h3><p>Да, это скучно. Но +5 см сами не появятся за ночь. Даже если очень попросить.</p></div>
+
+<h2>Отзывы довольных огородников</h2>
+<div class="quote">«Раньше стеснялась выдернуть морковь при свекрови. Теперь свекровь стесняется.»<cite>Галина П., Тула</cite></div>
+<div class="quote">«Прочитал всё. Сделал только половину. Морковь выросла. Жена сказала, что это совпадение.»<cite>Виктор, дача №67</cite></div>
+<div class="quote">«Кролики одобрили.»<cite>Анонимный кролик</cite></div>
+
+<section class="price">
+<s>Всего за 1990 ₽</s>
+<span class="now">0 ₽</span>
+Потому что вы только что прочитали всё бесплатно.
+<br><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">НАЖАТЬ СЮДА ЕЩЁ РАЗ</a>
+</section>
+
+<p class="tiny">Это пародия. Реальный прирост длины зависит от сорта, почвы, погоды и терпения. Мы не продаём ни семена, ни волшебные удобрения, ни уверенность в себе. Никакие морковки при съёмке не пострадали, были съедены. Огурцы и кабачки в акции не участвуют.</p>
+</main>
+
+<script>
+(function(){
+var PX=12, base=15, len=15, busy=false;
+var svg=document.getElementById('c');
+function draw(L){
+  var x0=90, w=L*PX, x1=x0+w, h=26;
+  svg.innerHTML=
+   '<g fill="#2e8b2e"><ellipse cx="62" cy="45" rx="30" ry="9" transform="rotate(-25 62 45)"/><ellipse cx="62" cy="45" rx="30" ry="9"/><ellipse cx="62" cy="45" rx="30" ry="9" transform="rotate(25 62 45)"/></g>'+
+   '<path d="M'+x0+' '+(45-h)+' Q'+(x0+w*0.5)+' '+(45-h*0.7)+' '+x1+' 45 Q'+(x0+w*0.5)+' '+(45+h*0.7)+' '+x0+' '+(45+h)+' Q'+(x0-10)+' 45 '+x0+' '+(45-h)+'Z" fill="#f26b0f" stroke="#b34a00" stroke-width="2"/>'+
+   '<g stroke="#b34a00" stroke-width="2" stroke-linecap="round"><path d="M'+(x0+w*0.25)+' 38v6"/><path d="M'+(x0+w*0.45)+' 50v6"/><path d="M'+(x0+w*0.65)+' 42v4"/></g>';
+  svg.setAttribute('viewBox','0 0 '+Math.max(460,x1+30)+' 90');
+  svg.setAttribute('width',Math.max(460,x1+30));
+  document.getElementById('now').textContent=(Math.round(L*10)/10)+' см';
+}
+draw(len);
+var msgs=['Свершилось! +5 см. Соседи в панике.','Ещё +5 см. Пора вызывать учёных.','Это уже не морковь, это удочка.','Хватит. Морковь вышла за пределы грядки.'];
+var n=0;
+document.getElementById('go').onclick=function(){
+  if(busy) return; busy=true;
+  var from=len, to=len+5, t0=null;
+  function step(t){
+    if(!t0) t0=t;
+    var p=Math.min((t-t0)/900,1);
+    draw(from+(to-from)*(1-Math.pow(1-p,3)));
+    if(p<1) requestAnimationFrame(step); else {len=to;busy=false;}
+  }
+  requestAnimationFrame(step);
+  document.getElementById('msg').textContent=msgs[Math.min(n++,msgs.length-1)];
+};
+var s=599, el=document.getElementById('t');
+setInterval(function(){
+  s=s>0?s-1:599;
+  el.textContent=('0'+Math.floor(s/60)).slice(-2)+':'+('0'+s%60).slice(-2);
+},1000);
+})();
+</script>
+</body>
+</html>
